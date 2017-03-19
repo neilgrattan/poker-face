@@ -179,7 +179,7 @@ namespace PokerFace.Test
             Assert.AreEqual(Constants.PokerHandFullHouse, pokerHandNamer.Name(_fullHouseHand));
             Assert.AreEqual(Constants.PokerHandFourOfAKind, pokerHandNamer.Name(_fourOfAKindHand));
             Assert.AreEqual(Constants.PokerHandStraightFlush, pokerHandNamer.Name(_straightFlushHand));
-            Assert.AreEqual(Constants.PokerHandStraightFlush, pokerHandNamer.Name(_royalFlushHand));
+            Assert.AreEqual(Constants.PokerHandRoyalFlush, pokerHandNamer.Name(_royalFlushHand));
         }
 
         [Test]
