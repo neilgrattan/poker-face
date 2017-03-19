@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using PokerFace.Mappings;
 using PokerFace.Model;
 
 namespace PokerFace
@@ -25,11 +26,6 @@ namespace PokerFace
 
         public CardHand ReadNextCardHand()
         {
-            if (_cardHandsFileStreamReader == null)
-            {
-                OpenFile();
-            }
-
             if (!AtEndOfFile())
             {
                 return BuildCardHandFromFileLine(_cardHandsFileStreamReader.ReadLine());
@@ -40,8 +36,7 @@ namespace PokerFace
 
         private static CardHand BuildCardHandFromFileLine(string line)
         {
-            // TODO: Implement
-            return new CardHand();
+            return MapStringArrayToCardHand.Map(line.Split(' '));
         }
 
         public void OpenFile()

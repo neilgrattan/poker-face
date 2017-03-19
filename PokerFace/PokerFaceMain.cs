@@ -23,6 +23,10 @@ namespace PokerFace
             while (!_cardHandsFileReader.AtEndOfFile())
             {
                 var cardHand = _cardHandsFileReader.ReadNextCardHand();
+
+                if (cardHand != null)
+                {
+                }
             }
 
             _cardHandsFileReader.CloseFile();
