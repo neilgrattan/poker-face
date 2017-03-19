@@ -1,19 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PokerFace
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            if(args.Length != 1)
+            if (args.Length != 1)
             {
-                Console.WriteLine(Constants.ERROR_MESSAGE_INVALID_NUMBER_OF_ARGUMENTS);
-                Environment.Exit((int)Constants.ExitStatusCode.INVALID_NUMBER_OF_ARGUMENTS);
+                Console.WriteLine(Constants.ErrorMessageInvalidNumberOfArguments);
+                Environment.Exit((int)Constants.ExitStatusCode.InvalidNumberOfArguments);
             }
 
             var cardHandsFileReader = new CardHandsFileReader(args[0]);

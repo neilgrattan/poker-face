@@ -7,20 +7,20 @@ namespace PokerFace.Test
     public class PokerFaceMainTests
     {
         //Mocks
-        private ICardHandsFileReader cardHandsFileReader;
+        private ICardHandsFileReader _cardHandsFileReader;
 
         [SetUp]
         protected void SetUp()
         {
-            cardHandsFileReader = Substitute.For<ICardHandsFileReader>();
+            _cardHandsFileReader = Substitute.For<ICardHandsFileReader>();
         }
 
         [Test]
         public void PokerFaceMain_FileNotFound_ExitsEarly()
         {
             // Arrange
-            cardHandsFileReader.FileExists().Returns(false);
-            var pokerFaceMain = new PokerFaceMain(cardHandsFileReader);
+            _cardHandsFileReader.FileExists().Returns(false);
+            var pokerFaceMain = new PokerFaceMain(_cardHandsFileReader);
 
             // Act
             var result = pokerFaceMain.EvaluateHands();

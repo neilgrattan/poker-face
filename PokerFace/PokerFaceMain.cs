@@ -1,34 +1,30 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PokerFace
 {
     public class PokerFaceMain
     {
-        private ICardHandsFileReader cardHandsFileReader;
+        private readonly ICardHandsFileReader _cardHandsFileReader;
 
-        public PokerFaceMain(ICardHandsFileReader _cardHandsFileReader)
+        public PokerFaceMain(ICardHandsFileReader cardHandsFileReader)
         {
-            cardHandsFileReader = _cardHandsFileReader;
+            _cardHandsFileReader = cardHandsFileReader;
         }
 
         public int EvaluateHands()
         {
-            if (!cardHandsFileReader.FileExists())
+            if (!_cardHandsFileReader.FileExists())
             {
-                Console.WriteLine(Constants.ERROR_MESSAGE_INPUT_FILE_NOT_FOUND);
-                return (int)Constants.ExitStatusCode.INPUT_FILE_NOT_FOUND;
+                Console.WriteLine(Constants.ErrorMessageInputFileNotFound);
+                return (int)Constants.ExitStatusCode.InputFileNotFound;
             }
 
-            while (!cardHandsFileReader.AtEndOfFile())
+            while (!_cardHandsFileReader.AtEndOfFile())
             {
-                var cardHand = cardHandsFileReader.ReadNextCardHand();
+                var cardHand = _cardHandsFileReader.ReadNextCardHand();
             }
 
-            return (int)Constants.ExitStatusCode.SUCCESS;
+            return (int)Constants.ExitStatusCode.Success;
         }
     }
 }

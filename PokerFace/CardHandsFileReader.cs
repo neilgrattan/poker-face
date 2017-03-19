@@ -1,42 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
+﻿using System.IO;
+using PokerFace.Model;
 
 namespace PokerFace
 {
     public class CardHandsFileReader : ICardHandsFileReader
     {
-        string filePath;
-        StreamReader cardHandsFileStreamReader;
+        private readonly string _filePath;
+        private StreamReader _cardHandsFileStreamReader;
 
-        public CardHandsFileReader(string _filePath)
+        public CardHandsFileReader(string filePath)
         {
-            filePath = _filePath;
+            _filePath = filePath;
         }
 
         public bool FileExists()
         {
-            return File.Exists(filePath);
+            return File.Exists(_filePath);
         }
 
         public bool AtEndOfFile()
         {
-            return cardHandsFileStreamReader != null && cardHandsFileStreamReader.Peek() < 0;
+            return _cardHandsFileStreamReader != null && _cardHandsFileStreamReader.Peek() < 0;
         }
 
         public CardHand ReadNextCardHand()
         {
-            if (cardHandsFileStreamReader == null)
+            if (_cardHandsFileStreamReader == null)
             {
                 OpenCardHandsFile();
             }
 
             if (!AtEndOfFile())
             {
-                return BuildCardHandFromFileLine(cardHandsFileStreamReader.ReadLine());
+                return BuildCardHandFromFileLine(_cardHandsFileStreamReader.ReadLine());
             }
             else
             {
@@ -44,7 +40,7 @@ namespace PokerFace
             }
         }
 
-        private CardHand BuildCardHandFromFileLine(string _line)
+        private CardHand BuildCardHandFromFileLine(string line)
         {
             // TODO: Implement
             return new CardHand();
@@ -52,11 +48,8 @@ namespace PokerFace
 
         private void OpenCardHandsFile()
         {
-            if (cardHandsFileStreamReader != null)
-            {
-                cardHandsFileStreamReader.Close();
-            }
-            cardHandsFileStreamReader = new StreamReader(filePath);
+            _cardHandsFileStreamReader?.Close();
+            _cardHandsFileStreamReader = new StreamReader(_filePath);
         }
     }
 }

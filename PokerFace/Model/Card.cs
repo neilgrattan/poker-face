@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PokerFace
+﻿namespace PokerFace.Model
 {
     public enum CardFace
     {
@@ -33,7 +27,7 @@ namespace PokerFace
 
     public class Card
     {
-        public CardFace face;
-        public CardSuit suit;
+        public CardFace Face { get; set; }
+        public CardSuit Suit { get; set; }
     }
 }
