@@ -34,13 +34,11 @@ namespace PokerFace
             {
                 return BuildCardHandFromFileLine(_cardHandsFileStreamReader.ReadLine());
             }
-            else
-            {
-                return null;
-            }
+
+            return null;
         }
 
-        private CardHand BuildCardHandFromFileLine(string line)
+        private static CardHand BuildCardHandFromFileLine(string line)
         {
             // TODO: Implement
             return new CardHand();

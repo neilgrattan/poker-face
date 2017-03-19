@@ -26,7 +26,7 @@ namespace PokerFace.Test
             var result = pokerFaceMain.EvaluateHands();
 
             // Assert
-            Assert.AreEqual((int)Constants.ExitStatusCode.INPUT_FILE_NOT_FOUND, result);
+            Assert.AreEqual((int)Constants.ExitStatusCode.InputFileNotFound, result);
         }
     }
 }
