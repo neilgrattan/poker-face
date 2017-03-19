@@ -1,4 +1,5 @@
 ﻿using System;
+using PokerFace.File;
 
 namespace PokerFace
 {
@@ -13,7 +14,8 @@ namespace PokerFace
             }
 
             var cardHandsFileReader = new CardHandsFileReader(args[0]);
-            var pokerFaceMain = new PokerFaceMain(cardHandsFileReader);
+            var pokerHandNamer = new PokerHandNamer();
+            var pokerFaceMain = new PokerFaceMain(cardHandsFileReader, pokerHandNamer);
 
             Environment.Exit(pokerFaceMain.EvaluateHands());
         }

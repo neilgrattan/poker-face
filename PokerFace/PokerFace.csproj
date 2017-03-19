@@ -59,13 +59,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IPokerHandNamer.cs" />
     <Compile Include="Mappings\MapStringToCardHand.cs" />
     <Compile Include="Model\Card.cs" />
     <Compile Include="Model\CardHand.cs" />
-    <Compile Include="CardHandsFileReader.cs" />
+    <Compile Include="File\CardHandsFileReader.cs" />
     <Compile Include="Constants.cs" />
-    <Compile Include="ICardHandsFileReader.cs" />
+    <Compile Include="File\ICardHandsFileReader.cs" />
     <Compile Include="PokerFaceMain.cs" />
+    <Compile Include="PokerHandNamer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using NUnit.Framework;
 using NSubstitute;
+using PokerFace.File;
 using PokerFace.Model;
 
 namespace PokerFace.Test
@@ -11,10 +12,13 @@ namespace PokerFace.Test
         //Mocks
         private ICardHandsFileReader _cardHandsFileReader;
 
+        private IPokerHandNamer _pokerHandNamer;
+
         [SetUp]
         protected void SetUp()
         {
             _cardHandsFileReader = Substitute.For<ICardHandsFileReader>();
+            _pokerHandNamer = Substitute.For<IPokerHandNamer>();
         }
 
         [Test]
@@ -22,7 +26,7 @@ namespace PokerFace.Test
         {
             // Arrange
             _cardHandsFileReader.FileExists().Returns(false);
-            var pokerFaceMain = new PokerFaceMain(_cardHandsFileReader);
+            var pokerFaceMain = new PokerFaceMain(_cardHandsFileReader, _pokerHandNamer);
 
             // Act
             var result = pokerFaceMain.EvaluateHands();
@@ -51,7 +55,7 @@ namespace PokerFace.Test
             _cardHandsFileReader.FileExists().Returns(false);
             _cardHandsFileReader.AtEndOfFile().Returns(false, true);
             _cardHandsFileReader.ReadNextCardHandLine().Returns(cardHandLine);
-            var pokerFaceMain = new PokerFaceMain(_cardHandsFileReader);
+            var pokerFaceMain = new PokerFaceMain(_cardHandsFileReader, _pokerHandNamer);
 
             // Act
             var result = pokerFaceMain.EvaluateHands();
@@ -59,6 +63,7 @@ namespace PokerFace.Test
             // Assert
             Assert.AreEqual((int)Constants.ExitStatusCode.Success, result);
             _cardHandsFileReader.Received(1).CloseFile();
+            _pokerHandNamer.Received(1).Name(cardHand);
         }
     }
 }

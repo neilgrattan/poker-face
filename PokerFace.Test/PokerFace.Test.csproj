@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="MappingTests.cs" />
     <Compile Include="PokerFaceMainTests.cs" />
+    <Compile Include="PokerHandNamerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
