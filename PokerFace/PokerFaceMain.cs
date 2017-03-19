@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using PokerFace.File;
 using PokerFace.Mappings;
 
@@ -32,6 +33,11 @@ namespace PokerFace
                 if (cardHand != null)
                 {
                     var pokerHandName = _pokerHandNamer.Name(cardHand);
+                    Console.WriteLine($"{cardHandString} => {pokerHandName}");
+                }
+                else
+                {
+                    Console.WriteLine($"Error: Could not construct valid card hand from line: {cardHandString}");
                 }
             }
 
