@@ -3,8 +3,13 @@ using PokerFace.Model;
 
 namespace PokerFace.Mappings
 {
-    public static class MapStringArrayToCardHand
+    public static class MapStringToCardHand
     {
+        public static CardHand Map(string concatenatedString)
+        {
+            return Map(concatenatedString.Split(' '));
+        }
+
         public static CardHand Map(string[] strings)
         {
             if (strings.Length != Constants.NumberOfCardsInHand)

@@ -24,19 +24,14 @@ namespace PokerFace
             return _cardHandsFileStreamReader.Peek() < 0;
         }
 
-        public CardHand ReadNextCardHand()
+        public string ReadNextCardHandLine()
         {
             if (!AtEndOfFile())
             {
-                return BuildCardHandFromFileLine(_cardHandsFileStreamReader.ReadLine());
+                return _cardHandsFileStreamReader.ReadLine();
             }
 
             return null;
-        }
-
-        private static CardHand BuildCardHandFromFileLine(string line)
-        {
-            return MapStringArrayToCardHand.Map(line.Split(' '));
         }
 
         public void OpenFile()

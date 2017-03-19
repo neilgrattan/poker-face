@@ -1,4 +1,5 @@
 ﻿using System;
+using PokerFace.Mappings;
 
 namespace PokerFace
 {
@@ -22,7 +23,8 @@ namespace PokerFace
             _cardHandsFileReader.OpenFile();
             while (!_cardHandsFileReader.AtEndOfFile())
             {
-                var cardHand = _cardHandsFileReader.ReadNextCardHand();
+                var cardHandString = _cardHandsFileReader.ReadNextCardHandLine();
+                var cardHand = MapStringToCardHand.Map(cardHandString);
 
                 if (cardHand != null)
                 {

@@ -8,7 +8,7 @@ namespace PokerFace
 
         bool AtEndOfFile();
 
-        CardHand ReadNextCardHand();
+        string ReadNextCardHandLine();
 
         void OpenFile();
 

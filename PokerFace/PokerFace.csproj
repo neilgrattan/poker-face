@@ -59,7 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Mappings\MapStringArrayToCardHand.cs" />
+    <Compile Include="Mappings\MapStringToCardHand.cs" />
     <Compile Include="Model\Card.cs" />
     <Compile Include="Model\CardHand.cs" />
     <Compile Include="CardHandsFileReader.cs" />
