@@ -19,11 +19,13 @@ namespace PokerFace
                 return (int)Constants.ExitStatusCode.InputFileNotFound;
             }
 
+            _cardHandsFileReader.OpenFile();
             while (!_cardHandsFileReader.AtEndOfFile())
             {
                 var cardHand = _cardHandsFileReader.ReadNextCardHand();
             }
 
+            _cardHandsFileReader.CloseFile();
             return (int)Constants.ExitStatusCode.Success;
         }
     }

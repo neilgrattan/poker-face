@@ -28,5 +28,10 @@ namespace PokerFace.Test
             // Assert
             Assert.AreEqual((int)Constants.ExitStatusCode.InputFileNotFound, result);
         }
+
+        [Test]
+        public void PokerFaceMain_FileHasOneValidCardHand_EvaluatesOneHandAndEnds()
+        {
+        }
     }
 }

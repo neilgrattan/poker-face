@@ -9,5 +9,9 @@ namespace PokerFace
         bool AtEndOfFile();
 
         CardHand ReadNextCardHand();
+
+        void OpenFile();
+
+        void CloseFile();
     }
 }

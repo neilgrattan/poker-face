@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using PokerFace.Model;
 
 namespace PokerFace.Mappings
@@ -59,6 +55,11 @@ namespace PokerFace.Mappings
 
         private static CardFace? MapCharToCardFace(char faceChar)
         {
+            // Could have been implemented using Enum.IsDefined and some
+            // custom attributes for string values (to map non-numeric face
+            // values) - However this would use reflection and this call is
+            // in a tight loop.
+
             switch (faceChar)
             {
                 case '2':

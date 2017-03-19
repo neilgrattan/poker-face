@@ -20,14 +20,14 @@ namespace PokerFace
 
         public bool AtEndOfFile()
         {
-            return _cardHandsFileStreamReader != null && _cardHandsFileStreamReader.Peek() < 0;
+            return _cardHandsFileStreamReader.Peek() < 0;
         }
 
         public CardHand ReadNextCardHand()
         {
             if (_cardHandsFileStreamReader == null)
             {
-                OpenCardHandsFile();
+                OpenFile();
             }
 
             if (!AtEndOfFile())
@@ -44,10 +44,15 @@ namespace PokerFace
             return new CardHand();
         }
 
-        private void OpenCardHandsFile()
+        public void OpenFile()
+        {
+            CloseFile();
+            _cardHandsFileStreamReader = new StreamReader(_filePath);
+        }
+
+        public void CloseFile()
         {
             _cardHandsFileStreamReader?.Close();
-            _cardHandsFileStreamReader = new StreamReader(_filePath);
         }
     }
 }
