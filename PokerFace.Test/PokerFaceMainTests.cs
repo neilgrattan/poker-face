@@ -52,7 +52,7 @@ namespace PokerFace.Test
                 }
             };
 
-            _cardHandsFileReader.FileExists().Returns(false);
+            _cardHandsFileReader.FileExists().Returns(true);
             _cardHandsFileReader.AtEndOfFile().Returns(false, true);
             _cardHandsFileReader.ReadNextCardHandLine().Returns(cardHandLine);
             var pokerFaceMain = new PokerFaceMain(_cardHandsFileReader, _pokerHandNamer);
