@@ -1,8 +1,6 @@
 ﻿using System.IO;
-using PokerFace.Mappings;
-using PokerFace.Model;
 
-namespace PokerFace
+namespace PokerFace.File
 {
     public class CardHandsFileReader : ICardHandsFileReader
     {
@@ -16,7 +14,7 @@ namespace PokerFace
 
         public bool FileExists()
         {
-            return File.Exists(_filePath);
+            return System.IO.File.Exists(_filePath);
         }
 
         public bool AtEndOfFile()

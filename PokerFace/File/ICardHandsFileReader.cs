@@ -1,6 +1,4 @@
-﻿using PokerFace.Model;
-
-namespace PokerFace
+﻿namespace PokerFace.File
 {
     public interface ICardHandsFileReader
     {
