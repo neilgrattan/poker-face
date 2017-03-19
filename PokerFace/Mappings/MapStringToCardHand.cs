@@ -24,7 +24,7 @@ namespace PokerFace.Mappings
 
             foreach (var cardString in strings)
             {
-                var card = MapStringToCard(cardString);
+                var card = MapCardStringToCard(cardString);
                 if (card != null)
                 {
                     cardHand.Cards.Add(card);
@@ -39,7 +39,7 @@ namespace PokerFace.Mappings
             return cardHand.Cards.Count != Constants.NumberOfCardsInHand ? null : cardHand;
         }
 
-        private static Card MapStringToCard(string cardString)
+        private static Card MapCardStringToCard(string cardString)
         {
             if (cardString.Length != 2)
             {
