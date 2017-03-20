@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using NUnit.Framework;
 using NSubstitute;
 using PokerFace.File;
@@ -9,16 +11,17 @@ namespace PokerFace.Test
     [TestFixture]
     public class PokerFaceMainTests
     {
-        //Mocks
+        // Mocks
         private ICardHandsFileReader _cardHandsFileReader;
 
+        // Implementations
         private IPokerHandNamer _pokerHandNamer;
 
         [SetUp]
         protected void SetUp()
         {
             _cardHandsFileReader = Substitute.For<ICardHandsFileReader>();
-            _pokerHandNamer = Substitute.For<IPokerHandNamer>();
+            _pokerHandNamer = new PokerHandNamer();
         }
 
         [Test]
@@ -36,35 +39,32 @@ namespace PokerFace.Test
         }
 
         [Test]
-        public void PokerFaceMain_FileHasOneValidCardHand_EvaluatesOneHandAndEnds()
+        public void PokerFaceMain_FileHasTwoValidCardHands_EvaluatesBothHandsAndEnds()
         {
-            // Arrange
-            var cardHandLine = "2D 3D 4D 5D 6D";
-            var cardHand = new CardHand()
+            using (var sw = new StringWriter())
             {
-                Cards = new List<Card>()
-                {
-                    new Card() {Rank = CardRank.Two, Suit = CardSuit.Diamonds},
-                    new Card() {Rank = CardRank.Three, Suit = CardSuit.Diamonds},
-                    new Card() {Rank = CardRank.Four, Suit = CardSuit.Diamonds},
-                    new Card() {Rank = CardRank.Five, Suit = CardSuit.Diamonds},
-                    new Card() {Rank = CardRank.Six, Suit = CardSuit.Diamonds}
-                }
-            };
+                Console.SetOut(sw);
 
-            _cardHandsFileReader.FileExists().Returns(true);
-            _cardHandsFileReader.AtEndOfFile().Returns(false, true);
-            _cardHandsFileReader.ReadNextCardHandLine().Returns(cardHandLine);
+                // Arrange
+                const string cardHandLine1 = "2D 3D 4D 5D 6D";
+                const string cardHandLine2 = "2C 3C 4C 5C 6C";
 
-            var pokerFaceMain = new PokerFaceMain(_cardHandsFileReader, _pokerHandNamer);
+                _cardHandsFileReader.FileExists().Returns(true);
+                _cardHandsFileReader.AtEndOfFile().Returns(false, false, true);
+                _cardHandsFileReader.ReadNextCardHandLine().Returns(cardHandLine1, cardHandLine2);
 
-            // Act
-            var result = pokerFaceMain.EvaluateHands();
+                var pokerFaceMain = new PokerFaceMain(_cardHandsFileReader, _pokerHandNamer);
 
-            // Assert
-            Assert.AreEqual((int)Constants.ExitStatusCode.Success, result);
-            _cardHandsFileReader.Received(1).CloseFile();
-            _pokerHandNamer.Received(1).GetPokerHandNameForCardHand(Arg.Any<CardHand>());
+                // Act
+                var result = pokerFaceMain.EvaluateHands();
+
+                // Assert
+                Assert.AreEqual((int)Constants.ExitStatusCode.Success, result);
+                _cardHandsFileReader.Received(1).CloseFile();
+                Assert.AreEqual("2D 3D 4D 5D 6D => Straight flush\r\n2C 3C 4C 5C 6C => Straight flush\r\n", sw.ToString());
+            }
+
+            Console.SetOut(new StreamWriter(Console.OpenStandardOutput()));
         }
     }
 }

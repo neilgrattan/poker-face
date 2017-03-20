@@ -14,6 +14,7 @@
             InputFileNotFound
         }
 
+        // Application logic constants
         public const int NumberOfCardsInHand = 5;
 
         public const string PokerHandHighCard = "High card";
