@@ -16,8 +16,8 @@ namespace PokerFace
 
             if (IsHandARoyalFlush(cardsGroupedByRank, cardsGroupedBySuit)) return Constants.PokerHandRoyalFlush;
             if (IsHandAStraightFlush(cardsGroupedByRank, cardsGroupedBySuit)) return Constants.PokerHandStraightFlush;
-            if (IsHandAFourOfAKind(cardsGroupedByRank, cardsGroupedBySuit)) return Constants.PokerHandFourOfAKind;
-            if (IsHandAFullHouse(cardsGroupedByRank, cardsGroupedBySuit)) return Constants.PokerHandFullHouse;
+            if (IsHandAFourOfAKind(cardsGroupedByRank)) return Constants.PokerHandFourOfAKind;
+            if (IsHandAFullHouse(cardsGroupedByRank)) return Constants.PokerHandFullHouse;
             if (IsHandAFlush(cardsGroupedBySuit)) return Constants.PokerHandFlush;
             if (IsHandAStraight(cardsGroupedByRank)) return Constants.PokerHandStraight;
             if (IsHandAThreeOfAKind(cardsGroupedByRank, cardsGroupedBySuit)) return Constants.PokerHandThreeOfAKind;
@@ -28,42 +28,60 @@ namespace PokerFace
 
         private bool IsHandAOnePair(Dictionary<CardFace, int> cardsGroupedByRank, Dictionary<CardSuit, int> cardsGroupedBySuit)
         {
-            throw new NotImplementedException();
+            return cardsGroupedByRank.Count(kvp => kvp.Value == 2) == 1;
         }
 
         private bool IsHandATwoPair(Dictionary<CardFace, int> cardsGroupedByRank, Dictionary<CardSuit, int> cardsGroupedBySuit)
         {
-            throw new NotImplementedException();
+            return cardsGroupedByRank.Count(kvp => kvp.Value == 2) == 2;
         }
 
         private bool IsHandAThreeOfAKind(Dictionary<CardFace, int> cardsGroupedByRank, Dictionary<CardSuit, int> cardsGroupedBySuit)
         {
-            throw new NotImplementedException();
+            return cardsGroupedByRank.Values.Max() == 3;
         }
 
-        private bool IsHandAFullHouse(Dictionary<CardFace, int> cardsGroupedByRank, Dictionary<CardSuit, int> cardsGroupedBySuit)
+        private bool IsHandAFullHouse(Dictionary<CardFace, int> cardsGroupedByRank)
         {
-            throw new NotImplementedException();
+            if (cardsGroupedByRank.ContainsValue(3)
+                && cardsGroupedByRank.ContainsValue(2))
+            {
+                return true;
+            }
+
+            return false;
         }
 
-        private bool IsHandAFourOfAKind(Dictionary<CardFace, int> cardsGroupedByRank, Dictionary<CardSuit, int> cardsGroupedBySuit)
+        private bool IsHandAFourOfAKind(Dictionary<CardFace, int> cardsGroupedByRank)
         {
-            throw new NotImplementedException();
+            return cardsGroupedByRank.Values.Max() == 4;
         }
 
         private bool IsHandAStraightFlush(Dictionary<CardFace, int> cardsGroupedByRank, Dictionary<CardSuit, int> cardsGroupedBySuit)
         {
-            throw new NotImplementedException();
+            if (IsHandAStraight(cardsGroupedByRank)
+                && IsHandAFlush(cardsGroupedBySuit))
+            {
+                return true;
+            }
+
+            return false;
         }
 
         private bool IsHandARoyalFlush(Dictionary<CardFace, int> cardsGroupedByRank, Dictionary<CardSuit, int> cardsGroupedBySuit)
         {
-            throw new NotImplementedException();
+            if (IsHandAStraightFlush(cardsGroupedByRank, cardsGroupedBySuit)
+                && cardsGroupedByRank.Keys.Min() == CardFace.Ten)
+            {
+                return true;
+            }
+
+            return false;
         }
 
         private bool IsHandAFlush(Dictionary<CardSuit, int> cardsGroupedBySuit)
         {
-            return cardsGroupedBySuit.Values.Max() == 1;
+            return cardsGroupedBySuit.Values.Max() == Constants.NumberOfCardsInHand;
         }
 
         private bool IsHandAStraight(Dictionary<CardFace, int> cardsGroupedByRank)

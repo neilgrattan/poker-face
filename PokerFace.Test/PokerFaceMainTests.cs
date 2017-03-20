@@ -55,6 +55,7 @@ namespace PokerFace.Test
             _cardHandsFileReader.FileExists().Returns(true);
             _cardHandsFileReader.AtEndOfFile().Returns(false, true);
             _cardHandsFileReader.ReadNextCardHandLine().Returns(cardHandLine);
+
             var pokerFaceMain = new PokerFaceMain(_cardHandsFileReader, _pokerHandNamer);
 
             // Act
@@ -63,7 +64,7 @@ namespace PokerFace.Test
             // Assert
             Assert.AreEqual((int)Constants.ExitStatusCode.Success, result);
             _cardHandsFileReader.Received(1).CloseFile();
-            _pokerHandNamer.Received(1).GetPokerHandNameForCardHand(cardHand);
+            _pokerHandNamer.Received(1).GetPokerHandNameForCardHand(Arg.Any<CardHand>());
         }
     }
 }
