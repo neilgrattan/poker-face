@@ -73,12 +73,26 @@ namespace PokerFace
 
         private Dictionary<CardSuit, int> GroupCardsBySuit(CardHand cardHand)
         {
-            throw new NotImplementedException();
+            return cardHand.Cards
+                .GroupBy(card => card.Suit)
+                .Select(cardGroup => new
+                {
+                    Key = cardGroup.Key,
+                    Val = cardGroup.Count()
+                })
+                .ToDictionary(kvp => kvp.Key, kvp => kvp.Val);
         }
 
         private Dictionary<CardFace, int> GroupCardsByRank(CardHand cardHand)
         {
-            throw new NotImplementedException();
+            return cardHand.Cards
+                .GroupBy(card => card.Face)
+                .Select(cardGroup => new
+                {
+                    Key = cardGroup.Key,
+                    Val = cardGroup.Count()
+                })
+                .ToDictionary(kvp => kvp.Key, kvp => kvp.Val);
         }
     }
 }
