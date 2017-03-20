@@ -14,16 +14,16 @@ namespace PokerFace
             var cardsGroupedByRank = GroupCardsByRank(cardHand);
             var cardsGroupedBySuit = GroupCardsBySuit(cardHand);
 
-            if (IsHandARoyalFlush(cardsGroupedByRank, cardsGroupedBySuit)) return Constants.PokerHandRoyalFlush;
-            if (IsHandAStraightFlush(cardsGroupedByRank, cardsGroupedBySuit)) return Constants.PokerHandStraightFlush;
-            if (IsHandAFourOfAKind(cardsGroupedByRank)) return Constants.PokerHandFourOfAKind;
-            if (IsHandAFullHouse(cardsGroupedByRank)) return Constants.PokerHandFullHouse;
-            if (IsHandAFlush(cardsGroupedBySuit)) return Constants.PokerHandFlush;
-            if (IsHandAStraight(cardsGroupedByRank)) return Constants.PokerHandStraight;
-            if (IsHandAThreeOfAKind(cardsGroupedByRank)) return Constants.PokerHandThreeOfAKind;
-            if (IsHandATwoPair(cardsGroupedByRank)) return Constants.PokerHandTwoPair;
-            if (IsHandAOnePair(cardsGroupedByRank)) return Constants.PokerHandOnePair;
-            return Constants.PokerHandHighCard;
+            if (IsHandARoyalFlush(cardsGroupedByRank, cardsGroupedBySuit)) return Constants.PokerHandNameRoyalFlush;
+            if (IsHandAStraightFlush(cardsGroupedByRank, cardsGroupedBySuit)) return Constants.PokerHandNameStraightFlush;
+            if (IsHandAFourOfAKind(cardsGroupedByRank)) return Constants.PokerHandNameFourOfAKind;
+            if (IsHandAFullHouse(cardsGroupedByRank)) return Constants.PokerHandNameFullHouse;
+            if (IsHandAFlush(cardsGroupedBySuit)) return Constants.PokerHandNameFlush;
+            if (IsHandAStraight(cardsGroupedByRank)) return Constants.PokerHandNameStraight;
+            if (IsHandAThreeOfAKind(cardsGroupedByRank)) return Constants.PokerHandNameThreeOfAKind;
+            if (IsHandATwoPair(cardsGroupedByRank)) return Constants.PokerHandNameTwoPair;
+            if (IsHandAOnePair(cardsGroupedByRank)) return Constants.PokerHandNameOnePair;
+            return Constants.PokerHandNameHighCard;
         }
 
         private static bool IsHandAOnePair(Dictionary<CardRank, int> cardsGroupedByRank)

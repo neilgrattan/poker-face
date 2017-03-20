@@ -180,18 +180,18 @@ namespace PokerFace.Test
         {
             var pokerHandNamer = new PokerHandNamer();
 
-            Assert.AreEqual(Constants.PokerHandHighCard, pokerHandNamer.GetPokerHandNameForCardHand(_highCardHand));
-            Assert.AreEqual(Constants.PokerHandOnePair, pokerHandNamer.GetPokerHandNameForCardHand(_onePairHand));
-            Assert.AreEqual(Constants.PokerHandTwoPair, pokerHandNamer.GetPokerHandNameForCardHand(_twoPairHand));
-            Assert.AreEqual(Constants.PokerHandThreeOfAKind, pokerHandNamer.GetPokerHandNameForCardHand(_threeOfAKindHand));
-            Assert.AreEqual(Constants.PokerHandStraight, pokerHandNamer.GetPokerHandNameForCardHand(_lowStraightHand));
-            Assert.AreEqual(Constants.PokerHandStraight, pokerHandNamer.GetPokerHandNameForCardHand(_middleStraightHand));
-            Assert.AreEqual(Constants.PokerHandStraight, pokerHandNamer.GetPokerHandNameForCardHand(_highStraightHand));
-            Assert.AreEqual(Constants.PokerHandFlush, pokerHandNamer.GetPokerHandNameForCardHand(_flushHand));
-            Assert.AreEqual(Constants.PokerHandFullHouse, pokerHandNamer.GetPokerHandNameForCardHand(_fullHouseHand));
-            Assert.AreEqual(Constants.PokerHandFourOfAKind, pokerHandNamer.GetPokerHandNameForCardHand(_fourOfAKindHand));
-            Assert.AreEqual(Constants.PokerHandStraightFlush, pokerHandNamer.GetPokerHandNameForCardHand(_straightFlushHand));
-            Assert.AreEqual(Constants.PokerHandRoyalFlush, pokerHandNamer.GetPokerHandNameForCardHand(_royalFlushHand));
+            Assert.AreEqual(Constants.PokerHandNameHighCard, pokerHandNamer.GetPokerHandNameForCardHand(_highCardHand));
+            Assert.AreEqual(Constants.PokerHandNameOnePair, pokerHandNamer.GetPokerHandNameForCardHand(_onePairHand));
+            Assert.AreEqual(Constants.PokerHandNameTwoPair, pokerHandNamer.GetPokerHandNameForCardHand(_twoPairHand));
+            Assert.AreEqual(Constants.PokerHandNameThreeOfAKind, pokerHandNamer.GetPokerHandNameForCardHand(_threeOfAKindHand));
+            Assert.AreEqual(Constants.PokerHandNameStraight, pokerHandNamer.GetPokerHandNameForCardHand(_lowStraightHand));
+            Assert.AreEqual(Constants.PokerHandNameStraight, pokerHandNamer.GetPokerHandNameForCardHand(_middleStraightHand));
+            Assert.AreEqual(Constants.PokerHandNameStraight, pokerHandNamer.GetPokerHandNameForCardHand(_highStraightHand));
+            Assert.AreEqual(Constants.PokerHandNameFlush, pokerHandNamer.GetPokerHandNameForCardHand(_flushHand));
+            Assert.AreEqual(Constants.PokerHandNameFullHouse, pokerHandNamer.GetPokerHandNameForCardHand(_fullHouseHand));
+            Assert.AreEqual(Constants.PokerHandNameFourOfAKind, pokerHandNamer.GetPokerHandNameForCardHand(_fourOfAKindHand));
+            Assert.AreEqual(Constants.PokerHandNameStraightFlush, pokerHandNamer.GetPokerHandNameForCardHand(_straightFlushHand));
+            Assert.AreEqual(Constants.PokerHandNameRoyalFlush, pokerHandNamer.GetPokerHandNameForCardHand(_royalFlushHand));
         }
 
         [Test]
@@ -199,7 +199,7 @@ namespace PokerFace.Test
         {
             var pokerHandNamer = new PokerHandNamer();
 
-            Assert.AreEqual(Constants.PokerHandHighCard, pokerHandNamer.GetPokerHandNameForCardHand(_straightWrappingNegativeTestHand));
+            Assert.AreEqual(Constants.PokerHandNameHighCard, pokerHandNamer.GetPokerHandNameForCardHand(_straightWrappingNegativeTestHand));
         }
     }
 }

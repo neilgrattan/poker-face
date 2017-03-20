@@ -17,15 +17,15 @@
         // Application logic constants
         public const int NumberOfCardsInHand = 5;
 
-        public const string PokerHandHighCard = "High card";
-        public const string PokerHandOnePair = "One pair";
-        public const string PokerHandTwoPair = "Two pair";
-        public const string PokerHandThreeOfAKind = "Three of a kind";
-        public const string PokerHandStraight = "Straight";
-        public const string PokerHandFlush = "Flush";
-        public const string PokerHandFullHouse = "Full house";
-        public const string PokerHandFourOfAKind = "Four of a kind";
-        public const string PokerHandStraightFlush = "Straight flush";
-        public const string PokerHandRoyalFlush = "Royal flush";
+        public const string PokerHandNameHighCard = "High card";
+        public const string PokerHandNameOnePair = "One pair";
+        public const string PokerHandNameTwoPair = "Two pair";
+        public const string PokerHandNameThreeOfAKind = "Three of a kind";
+        public const string PokerHandNameStraight = "Straight";
+        public const string PokerHandNameFlush = "Flush";
+        public const string PokerHandNameFullHouse = "Full house";
+        public const string PokerHandNameFourOfAKind = "Four of a kind";
+        public const string PokerHandNameStraightFlush = "Straight flush";
+        public const string PokerHandNameRoyalFlush = "Royal flush";
     }
 }
