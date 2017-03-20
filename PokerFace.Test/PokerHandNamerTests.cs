@@ -163,18 +163,6 @@ namespace PokerFace.Test
             }
         };
 
-        private readonly CardHand _straightWrappingCombinationTestHand = new CardHand()
-        {
-            Cards = new List<Card>()
-            {
-                new Card() {Rank = CardRank.King, Suit = CardSuit.Clubs},
-                new Card() {Rank = CardRank.AceHigh, Suit = CardSuit.Diamonds},
-                new Card() {Rank = CardRank.Two, Suit = CardSuit.Clubs},
-                new Card() {Rank = CardRank.Three, Suit = CardSuit.Clubs},
-                new Card() {Rank = CardRank.Four, Suit = CardSuit.Clubs}
-            }
-        };
-
         [Test]
         public void PokerHandNamer_CalledWithEachHandSeparately_ReturnsCorrectResult()
         {
