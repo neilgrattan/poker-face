@@ -63,7 +63,7 @@ namespace PokerFace.Test
             // Assert
             Assert.AreEqual((int)Constants.ExitStatusCode.Success, result);
             _cardHandsFileReader.Received(1).CloseFile();
-            _pokerHandNamer.Received(1).Name(cardHand);
+            _pokerHandNamer.Received(1).GetPokerHandNameForCardHand(cardHand);
         }
     }
 }

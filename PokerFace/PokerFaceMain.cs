@@ -32,7 +32,7 @@ namespace PokerFace
 
                 if (cardHand != null)
                 {
-                    var pokerHandName = _pokerHandNamer.Name(cardHand);
+                    var pokerHandName = _pokerHandNamer.GetPokerHandNameForCardHand(cardHand);
                     Console.WriteLine($"{cardHandString} => {pokerHandName}");
                 }
                 else
