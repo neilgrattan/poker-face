@@ -46,7 +46,7 @@ namespace PokerFace.Mappings
                 return null;
             }
 
-            var face = MapCharToCardFace(cardString[0]);
+            var face = MapCharToCardRank(cardString[0]);
             var suit = MapCharToCardSuit(cardString[1]);
 
             return !face.HasValue || !suit.HasValue
@@ -58,14 +58,14 @@ namespace PokerFace.Mappings
                 };
         }
 
-        private static CardRank? MapCharToCardFace(char faceChar)
+        private static CardRank? MapCharToCardRank(char rankChar)
         {
             // Could have been implemented using Enum.IsDefined and some
-            // custom attributes for string values (to map non-numeric face
+            // custom attributes for string values (to map non-numeric rank
             // values) - However this would use reflection and this call is
             // in a tight loop.
 
-            switch (faceChar)
+            switch (rankChar)
             {
                 case '2':
                     return CardRank.Two;
@@ -104,7 +104,7 @@ namespace PokerFace.Mappings
                     return CardRank.King;
 
                 case 'A':
-                    return CardRank.Ace;
+                    return CardRank.AceHigh;  // Default ace high
 
                 default:
                     return null;

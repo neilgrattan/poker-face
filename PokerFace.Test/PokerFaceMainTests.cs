@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using NUnit.Framework;
 using NSubstitute;
 using PokerFace.File;
-using PokerFace.Model;
 
 namespace PokerFace.Test
 {

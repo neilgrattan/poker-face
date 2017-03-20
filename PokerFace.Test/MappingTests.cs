@@ -83,7 +83,7 @@ namespace PokerFace.Test
             Assert.AreEqual(CardRank.Ten, cardHand.Cards[1].Rank);
             Assert.AreEqual(CardSuit.Diamonds, cardHand.Cards[1].Suit);
 
-            Assert.AreEqual(CardRank.Ace, cardHand.Cards[2].Rank);
+            Assert.AreEqual(CardRank.AceHigh, cardHand.Cards[2].Rank);
             Assert.AreEqual(CardSuit.Hearts, cardHand.Cards[2].Suit);
 
             Assert.AreEqual(CardRank.Five, cardHand.Cards[3].Rank);
@@ -106,7 +106,7 @@ namespace PokerFace.Test
             Assert.AreEqual(CardRank.Ten, cardHand.Cards[1].Rank);
             Assert.AreEqual(CardSuit.Diamonds, cardHand.Cards[1].Suit);
 
-            Assert.AreEqual(CardRank.Ace, cardHand.Cards[2].Rank);
+            Assert.AreEqual(CardRank.AceHigh, cardHand.Cards[2].Rank);
             Assert.AreEqual(CardSuit.Hearts, cardHand.Cards[2].Suit);
 
             Assert.AreEqual(CardRank.Five, cardHand.Cards[3].Rank);

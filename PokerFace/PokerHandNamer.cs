@@ -90,7 +90,7 @@ namespace PokerFace
             if (cardsGroupedByRank.Values.Max() == 1)
             {
                 var highestRankedCard = cardsGroupedByRank.Keys.Max();
-                var handContainsAce = highestRankedCard == CardRank.Ace;
+                var handContainsAce = highestRankedCard == CardRank.AceHigh;
                 var lowestRankedCard = cardsGroupedByRank.Keys.Min();
 
                 // Condition 2: Make sure all the cards are grouped together
@@ -99,12 +99,12 @@ namespace PokerFace
                     return true;
                 }
 
-                // If the hand contained an ace, try again with aces low.
+                // If the hand contained an ace, try again with aces low (compared against the second highest card).
                 if (handContainsAce)
                 {
                     lowestRankedCard = CardRank.AceLow;
                     highestRankedCard = cardsGroupedByRank.Keys
-                        .Where(cardRank => cardRank != CardRank.Ace)
+                        .Where(cardRank => cardRank != CardRank.AceHigh)
                         .Max();
 
                     if (highestRankedCard - lowestRankedCard == (Constants.NumberOfCardsInHand - 1))

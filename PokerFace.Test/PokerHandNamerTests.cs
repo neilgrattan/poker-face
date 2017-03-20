@@ -11,7 +11,7 @@ namespace PokerFace.Test
         {
             Cards = new List<Card>()
             {
-                new Card() {Rank = CardRank.Ace, Suit = CardSuit.Clubs},
+                new Card() {Rank = CardRank.AceHigh, Suit = CardSuit.Clubs},
                 new Card() {Rank = CardRank.Two, Suit = CardSuit.Clubs},
                 new Card() {Rank = CardRank.Five, Suit = CardSuit.Diamonds},
                 new Card() {Rank = CardRank.Ten, Suit = CardSuit.Clubs},
@@ -23,7 +23,7 @@ namespace PokerFace.Test
         {
             Cards = new List<Card>()
             {
-                new Card() {Rank = CardRank.Ace, Suit = CardSuit.Clubs},
+                new Card() {Rank = CardRank.AceHigh, Suit = CardSuit.Clubs},
                 new Card() {Rank = CardRank.Two, Suit = CardSuit.Clubs},
                 new Card() {Rank = CardRank.Three, Suit = CardSuit.Diamonds},
                 new Card() {Rank = CardRank.Ten, Suit = CardSuit.Clubs},
@@ -35,9 +35,9 @@ namespace PokerFace.Test
         {
             Cards = new List<Card>()
             {
-                new Card() {Rank = CardRank.Ace, Suit = CardSuit.Clubs},
+                new Card() {Rank = CardRank.AceHigh, Suit = CardSuit.Clubs},
                 new Card() {Rank = CardRank.Two, Suit = CardSuit.Clubs},
-                new Card() {Rank = CardRank.Ace, Suit = CardSuit.Spades},
+                new Card() {Rank = CardRank.AceHigh, Suit = CardSuit.Spades},
                 new Card() {Rank = CardRank.Ten, Suit = CardSuit.Clubs},
                 new Card() {Rank = CardRank.Two, Suit = CardSuit.Diamonds}
             }
@@ -59,7 +59,7 @@ namespace PokerFace.Test
         {
             Cards = new List<Card>()
             {
-                new Card() {Rank = CardRank.Ace, Suit = CardSuit.Clubs},
+                new Card() {Rank = CardRank.AceHigh, Suit = CardSuit.Clubs},
                 new Card() {Rank = CardRank.Five, Suit = CardSuit.Clubs},
                 new Card() {Rank = CardRank.Three, Suit = CardSuit.Spades},
                 new Card() {Rank = CardRank.Four, Suit = CardSuit.Clubs},
@@ -87,7 +87,7 @@ namespace PokerFace.Test
                 new Card() {Rank = CardRank.Ten, Suit = CardSuit.Clubs},
                 new Card() {Rank = CardRank.Joker, Suit = CardSuit.Spades},
                 new Card() {Rank = CardRank.King, Suit = CardSuit.Clubs},
-                new Card() {Rank = CardRank.Ace, Suit = CardSuit.Diamonds}
+                new Card() {Rank = CardRank.AceHigh, Suit = CardSuit.Diamonds}
             }
         };
 
@@ -99,7 +99,7 @@ namespace PokerFace.Test
                 new Card() {Rank = CardRank.Ten, Suit = CardSuit.Clubs},
                 new Card() {Rank = CardRank.Joker, Suit = CardSuit.Clubs},
                 new Card() {Rank = CardRank.King, Suit = CardSuit.Clubs},
-                new Card() {Rank = CardRank.Ace, Suit = CardSuit.Clubs}
+                new Card() {Rank = CardRank.AceHigh, Suit = CardSuit.Clubs}
             }
         };
 
@@ -133,7 +133,7 @@ namespace PokerFace.Test
             {
                 new Card() {Rank = CardRank.Two, Suit = CardSuit.Clubs},
                 new Card() {Rank = CardRank.Three, Suit = CardSuit.Clubs},
-                new Card() {Rank = CardRank.Ace, Suit = CardSuit.Clubs},
+                new Card() {Rank = CardRank.AceHigh, Suit = CardSuit.Clubs},
                 new Card() {Rank = CardRank.Four, Suit = CardSuit.Clubs},
                 new Card() {Rank = CardRank.Five, Suit = CardSuit.Clubs}
             }
@@ -145,7 +145,7 @@ namespace PokerFace.Test
             {
                 new Card() {Rank = CardRank.Queen, Suit = CardSuit.Clubs},
                 new Card() {Rank = CardRank.King, Suit = CardSuit.Clubs},
-                new Card() {Rank = CardRank.Ace, Suit = CardSuit.Clubs},
+                new Card() {Rank = CardRank.AceHigh, Suit = CardSuit.Clubs},
                 new Card() {Rank = CardRank.Ten, Suit = CardSuit.Clubs},
                 new Card() {Rank = CardRank.Joker, Suit = CardSuit.Clubs}
             }
@@ -156,7 +156,7 @@ namespace PokerFace.Test
             Cards = new List<Card>()
             {
                 new Card() {Rank = CardRank.King, Suit = CardSuit.Clubs},
-                new Card() {Rank = CardRank.Ace, Suit = CardSuit.Diamonds},
+                new Card() {Rank = CardRank.AceHigh, Suit = CardSuit.Diamonds},
                 new Card() {Rank = CardRank.Two, Suit = CardSuit.Clubs},
                 new Card() {Rank = CardRank.Three, Suit = CardSuit.Clubs},
                 new Card() {Rank = CardRank.Four, Suit = CardSuit.Clubs}
@@ -168,7 +168,7 @@ namespace PokerFace.Test
             Cards = new List<Card>()
             {
                 new Card() {Rank = CardRank.King, Suit = CardSuit.Clubs},
-                new Card() {Rank = CardRank.Ace, Suit = CardSuit.Diamonds},
+                new Card() {Rank = CardRank.AceHigh, Suit = CardSuit.Diamonds},
                 new Card() {Rank = CardRank.Two, Suit = CardSuit.Clubs},
                 new Card() {Rank = CardRank.Three, Suit = CardSuit.Clubs},
                 new Card() {Rank = CardRank.Four, Suit = CardSuit.Clubs}

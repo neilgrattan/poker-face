@@ -15,7 +15,7 @@
         Joker = 11,
         Queen = 12,
         King = 13,
-        Ace = 14 // Default ace high in mapping
+        AceHigh = 14
     }
 
     public enum CardSuit
