@@ -13,20 +13,17 @@ namespace PokerFace
         {
         }
 
-        public string Name(CardHand cardHand)
+        public string GetPokerHandNameForCardHand(CardHand cardHand)
         {
             var cardsGroupedByRank = GroupCardsByRank(cardHand);
             var cardsGroupedBySuit = GroupCardsBySuit(cardHand);
-
-            //var isStraight = IsHandAStraight(cardsGroupedByRank);
-            //var isFlush = IsHandAFlush(cardsGroupedBySuit);
 
             if (IsHandARoyalFlush(cardsGroupedByRank, cardsGroupedBySuit)) return Constants.PokerHandRoyalFlush;
             if (IsHandAStraightFlush(cardsGroupedByRank, cardsGroupedBySuit)) return Constants.PokerHandStraightFlush;
             if (IsHandAFourOfAKind(cardsGroupedByRank, cardsGroupedBySuit)) return Constants.PokerHandFourOfAKind;
             if (IsHandAFullHouse(cardsGroupedByRank, cardsGroupedBySuit)) return Constants.PokerHandFullHouse;
-            if (IsHandAFlush(cardsGroupedByRank, cardsGroupedBySuit)) return Constants.PokerHandFlush;
-            if (IsHandAStraight(cardsGroupedByRank, cardsGroupedBySuit)) return Constants.PokerHandStraight;
+            if (IsHandAFlush(cardsGroupedBySuit)) return Constants.PokerHandFlush;
+            if (IsHandAStraight(cardsGroupedByRank)) return Constants.PokerHandStraight;
             if (IsHandAThreeOfAKind(cardsGroupedByRank, cardsGroupedBySuit)) return Constants.PokerHandThreeOfAKind;
             if (IsHandATwoPair(cardsGroupedByRank, cardsGroupedBySuit)) return Constants.PokerHandTwoPair;
             if (IsHandAOnePair(cardsGroupedByRank, cardsGroupedBySuit)) return Constants.PokerHandOnePair;
