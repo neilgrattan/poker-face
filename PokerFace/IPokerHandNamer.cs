@@ -9,6 +9,6 @@ namespace PokerFace
 {
     public interface IPokerHandNamer
     {
-        string Name(CardHand cardHand);
+        string Name(CardHand _cardHand);
     }
 }
