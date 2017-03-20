@@ -20,28 +20,28 @@ namespace PokerFace
             if (IsHandAFullHouse(cardsGroupedByRank)) return Constants.PokerHandFullHouse;
             if (IsHandAFlush(cardsGroupedBySuit)) return Constants.PokerHandFlush;
             if (IsHandAStraight(cardsGroupedByRank)) return Constants.PokerHandStraight;
-            if (IsHandAThreeOfAKind(cardsGroupedByRank, cardsGroupedBySuit)) return Constants.PokerHandThreeOfAKind;
-            if (IsHandATwoPair(cardsGroupedByRank, cardsGroupedBySuit)) return Constants.PokerHandTwoPair;
-            if (IsHandAOnePair(cardsGroupedByRank, cardsGroupedBySuit)) return Constants.PokerHandOnePair;
+            if (IsHandAThreeOfAKind(cardsGroupedByRank)) return Constants.PokerHandThreeOfAKind;
+            if (IsHandATwoPair(cardsGroupedByRank)) return Constants.PokerHandTwoPair;
+            if (IsHandAOnePair(cardsGroupedByRank)) return Constants.PokerHandOnePair;
             return Constants.PokerHandHighCard;
         }
 
-        private bool IsHandAOnePair(Dictionary<CardFace, int> cardsGroupedByRank, Dictionary<CardSuit, int> cardsGroupedBySuit)
+        private static bool IsHandAOnePair(Dictionary<CardFace, int> cardsGroupedByRank)
         {
             return cardsGroupedByRank.Count(kvp => kvp.Value == 2) == 1;
         }
 
-        private bool IsHandATwoPair(Dictionary<CardFace, int> cardsGroupedByRank, Dictionary<CardSuit, int> cardsGroupedBySuit)
+        private static bool IsHandATwoPair(Dictionary<CardFace, int> cardsGroupedByRank)
         {
             return cardsGroupedByRank.Count(kvp => kvp.Value == 2) == 2;
         }
 
-        private bool IsHandAThreeOfAKind(Dictionary<CardFace, int> cardsGroupedByRank, Dictionary<CardSuit, int> cardsGroupedBySuit)
+        private static bool IsHandAThreeOfAKind(Dictionary<CardFace, int> cardsGroupedByRank)
         {
             return cardsGroupedByRank.Values.Max() == 3;
         }
 
-        private bool IsHandAFullHouse(Dictionary<CardFace, int> cardsGroupedByRank)
+        private static bool IsHandAFullHouse(Dictionary<CardFace, int> cardsGroupedByRank)
         {
             if (cardsGroupedByRank.ContainsValue(3)
                 && cardsGroupedByRank.ContainsValue(2))
@@ -52,12 +52,12 @@ namespace PokerFace
             return false;
         }
 
-        private bool IsHandAFourOfAKind(Dictionary<CardFace, int> cardsGroupedByRank)
+        private static bool IsHandAFourOfAKind(Dictionary<CardFace, int> cardsGroupedByRank)
         {
             return cardsGroupedByRank.Values.Max() == 4;
         }
 
-        private bool IsHandAStraightFlush(Dictionary<CardFace, int> cardsGroupedByRank, Dictionary<CardSuit, int> cardsGroupedBySuit)
+        private static bool IsHandAStraightFlush(Dictionary<CardFace, int> cardsGroupedByRank, Dictionary<CardSuit, int> cardsGroupedBySuit)
         {
             if (IsHandAStraight(cardsGroupedByRank)
                 && IsHandAFlush(cardsGroupedBySuit))
@@ -68,7 +68,7 @@ namespace PokerFace
             return false;
         }
 
-        private bool IsHandARoyalFlush(Dictionary<CardFace, int> cardsGroupedByRank, Dictionary<CardSuit, int> cardsGroupedBySuit)
+        private static bool IsHandARoyalFlush(Dictionary<CardFace, int> cardsGroupedByRank, Dictionary<CardSuit, int> cardsGroupedBySuit)
         {
             if (IsHandAStraightFlush(cardsGroupedByRank, cardsGroupedBySuit)
                 && cardsGroupedByRank.Keys.Min() == CardFace.Ten)
@@ -79,12 +79,12 @@ namespace PokerFace
             return false;
         }
 
-        private bool IsHandAFlush(Dictionary<CardSuit, int> cardsGroupedBySuit)
+        private static bool IsHandAFlush(Dictionary<CardSuit, int> cardsGroupedBySuit)
         {
             return cardsGroupedBySuit.Values.Max() == Constants.NumberOfCardsInHand;
         }
 
-        private bool IsHandAStraight(Dictionary<CardFace, int> cardsGroupedByRank)
+        private static bool IsHandAStraight(Dictionary<CardFace, int> cardsGroupedByRank)
         {
             // Condition 1: Ensure each card rank is unique
             if (cardsGroupedByRank.Values.Max() == 1)
@@ -117,7 +117,7 @@ namespace PokerFace
             return false;
         }
 
-        private Dictionary<CardSuit, int> GroupCardsBySuit(CardHand cardHand)
+        private static Dictionary<CardSuit, int> GroupCardsBySuit(CardHand cardHand)
         {
             return cardHand.Cards
                 .GroupBy(card => card.Suit)
@@ -129,7 +129,7 @@ namespace PokerFace
                 .ToDictionary(kvp => kvp.Key, kvp => kvp.Val);
         }
 
-        private Dictionary<CardFace, int> GroupCardsByRank(CardHand cardHand)
+        private static Dictionary<CardFace, int> GroupCardsByRank(CardHand cardHand)
         {
             return cardHand.Cards
                 .GroupBy(card => card.Face)
