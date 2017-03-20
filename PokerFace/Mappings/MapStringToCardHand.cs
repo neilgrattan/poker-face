@@ -53,12 +53,12 @@ namespace PokerFace.Mappings
                 ? null
                 : new Card()
                 {
-                    Face = face.Value,
+                    Rank = face.Value,
                     Suit = suit.Value
                 };
         }
 
-        private static CardFace? MapCharToCardFace(char faceChar)
+        private static CardRank? MapCharToCardFace(char faceChar)
         {
             // Could have been implemented using Enum.IsDefined and some
             // custom attributes for string values (to map non-numeric face
@@ -68,43 +68,43 @@ namespace PokerFace.Mappings
             switch (faceChar)
             {
                 case '2':
-                    return CardFace.Two;
+                    return CardRank.Two;
 
                 case '3':
-                    return CardFace.Three;
+                    return CardRank.Three;
 
                 case '4':
-                    return CardFace.Four;
+                    return CardRank.Four;
 
                 case '5':
-                    return CardFace.Five;
+                    return CardRank.Five;
 
                 case '6':
-                    return CardFace.Six;
+                    return CardRank.Six;
 
                 case '7':
-                    return CardFace.Seven;
+                    return CardRank.Seven;
 
                 case '8':
-                    return CardFace.Eight;
+                    return CardRank.Eight;
 
                 case '9':
-                    return CardFace.Nine;
+                    return CardRank.Nine;
 
                 case 'T':
-                    return CardFace.Ten;
+                    return CardRank.Ten;
 
                 case 'J':
-                    return CardFace.Joker;
+                    return CardRank.Joker;
 
                 case 'Q':
-                    return CardFace.Queen;
+                    return CardRank.Queen;
 
                 case 'K':
-                    return CardFace.King;
+                    return CardRank.King;
 
                 case 'A':
-                    return CardFace.Ace;
+                    return CardRank.Ace;
 
                 default:
                     return null;

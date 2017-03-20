@@ -1,6 +1,6 @@
 ﻿namespace PokerFace.Model
 {
-    public enum CardFace
+    public enum CardRank
     {
         AceLow = 1,
         Two = 2,
@@ -28,7 +28,7 @@
 
     public class Card
     {
-        public CardFace Face { get; set; }
+        public CardRank Rank { get; set; }
         public CardSuit Suit { get; set; }
     }
 }

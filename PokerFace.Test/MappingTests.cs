@@ -78,19 +78,19 @@ namespace PokerFace.Test
 
             Assert.AreEqual(5, cardHand.Cards.Count);
 
-            Assert.AreEqual(CardFace.Two, cardHand.Cards[0].Face);
+            Assert.AreEqual(CardRank.Two, cardHand.Cards[0].Rank);
             Assert.AreEqual(CardSuit.Clubs, cardHand.Cards[0].Suit);
 
-            Assert.AreEqual(CardFace.Ten, cardHand.Cards[1].Face);
+            Assert.AreEqual(CardRank.Ten, cardHand.Cards[1].Rank);
             Assert.AreEqual(CardSuit.Diamonds, cardHand.Cards[1].Suit);
 
-            Assert.AreEqual(CardFace.Ace, cardHand.Cards[2].Face);
+            Assert.AreEqual(CardRank.Ace, cardHand.Cards[2].Rank);
             Assert.AreEqual(CardSuit.Hearts, cardHand.Cards[2].Suit);
 
-            Assert.AreEqual(CardFace.Five, cardHand.Cards[3].Face);
+            Assert.AreEqual(CardRank.Five, cardHand.Cards[3].Rank);
             Assert.AreEqual(CardSuit.Spades, cardHand.Cards[3].Suit);
 
-            Assert.AreEqual(CardFace.Two, cardHand.Cards[4].Face);
+            Assert.AreEqual(CardRank.Two, cardHand.Cards[4].Rank);
             Assert.AreEqual(CardSuit.Diamonds, cardHand.Cards[4].Suit);
         }
 
@@ -101,19 +101,19 @@ namespace PokerFace.Test
 
             Assert.AreEqual(5, cardHand.Cards.Count);
 
-            Assert.AreEqual(CardFace.Two, cardHand.Cards[0].Face);
+            Assert.AreEqual(CardRank.Two, cardHand.Cards[0].Rank);
             Assert.AreEqual(CardSuit.Clubs, cardHand.Cards[0].Suit);
 
-            Assert.AreEqual(CardFace.Ten, cardHand.Cards[1].Face);
+            Assert.AreEqual(CardRank.Ten, cardHand.Cards[1].Rank);
             Assert.AreEqual(CardSuit.Diamonds, cardHand.Cards[1].Suit);
 
-            Assert.AreEqual(CardFace.Ace, cardHand.Cards[2].Face);
+            Assert.AreEqual(CardRank.Ace, cardHand.Cards[2].Rank);
             Assert.AreEqual(CardSuit.Hearts, cardHand.Cards[2].Suit);
 
-            Assert.AreEqual(CardFace.Five, cardHand.Cards[3].Face);
+            Assert.AreEqual(CardRank.Five, cardHand.Cards[3].Rank);
             Assert.AreEqual(CardSuit.Spades, cardHand.Cards[3].Suit);
 
-            Assert.AreEqual(CardFace.Two, cardHand.Cards[4].Face);
+            Assert.AreEqual(CardRank.Two, cardHand.Cards[4].Rank);
             Assert.AreEqual(CardSuit.Diamonds, cardHand.Cards[4].Suit);
         }
     }

@@ -44,11 +44,11 @@ namespace PokerFace.Test
             {
                 Cards = new List<Card>()
                 {
-                    new Card() {Face = CardFace.Two, Suit = CardSuit.Diamonds},
-                    new Card() {Face = CardFace.Three, Suit = CardSuit.Diamonds},
-                    new Card() {Face = CardFace.Four, Suit = CardSuit.Diamonds},
-                    new Card() {Face = CardFace.Five, Suit = CardSuit.Diamonds},
-                    new Card() {Face = CardFace.Six, Suit = CardSuit.Diamonds}
+                    new Card() {Rank = CardRank.Two, Suit = CardSuit.Diamonds},
+                    new Card() {Rank = CardRank.Three, Suit = CardSuit.Diamonds},
+                    new Card() {Rank = CardRank.Four, Suit = CardSuit.Diamonds},
+                    new Card() {Rank = CardRank.Five, Suit = CardSuit.Diamonds},
+                    new Card() {Rank = CardRank.Six, Suit = CardSuit.Diamonds}
                 }
             };
 
