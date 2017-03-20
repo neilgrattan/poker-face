@@ -5,7 +5,7 @@ using PokerFace.Model;
 namespace PokerFace.Test
 {
     [TestFixture]
-    public class MappingTests
+    internal class MappingTests
     {
         [Test]
         public void MapStringArrayToCardHand_WithInsuffientStrings_ReturnsNull()

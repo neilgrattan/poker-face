@@ -7,7 +7,7 @@ using PokerFace.File;
 namespace PokerFace.Test
 {
     [TestFixture]
-    public class PokerFaceMainTests
+    internal class PokerFaceMainTests
     {
         // Mocks
         private ICardHandsFileReader _cardHandsFileReader;
