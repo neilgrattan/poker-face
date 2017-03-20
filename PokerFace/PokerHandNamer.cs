@@ -9,10 +9,6 @@ namespace PokerFace
 {
     public class PokerHandNamer : IPokerHandNamer
     {
-        public PokerHandNamer()
-        {
-        }
-
         public string GetPokerHandNameForCardHand(CardHand cardHand)
         {
             var cardsGroupedByRank = GroupCardsByRank(cardHand);
