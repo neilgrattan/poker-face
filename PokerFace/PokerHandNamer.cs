@@ -63,12 +63,40 @@ namespace PokerFace
 
         private bool IsHandAFlush(Dictionary<CardSuit, int> cardsGroupedBySuit)
         {
-            throw new NotImplementedException();
+            return cardsGroupedBySuit.Values.Max() == 1;
         }
 
         private bool IsHandAStraight(Dictionary<CardFace, int> cardsGroupedByRank)
         {
-            throw new NotImplementedException();
+            // Condition 1: Ensure each card rank is unique
+            if (cardsGroupedByRank.Values.Max() == 1)
+            {
+                var highestRankedCard = cardsGroupedByRank.Keys.Max();
+                var handContainsAce = highestRankedCard == CardFace.Ace;
+                var lowestRankedCard = cardsGroupedByRank.Keys.Min();
+
+                // Condition 2: Make sure all the cards are grouped together
+                if (highestRankedCard - lowestRankedCard == (Constants.NumberOfCardsInHand - 1))
+                {
+                    return true;
+                }
+
+                // If the hand contained an ace, try again with aces low.
+                if (handContainsAce)
+                {
+                    lowestRankedCard = CardFace.AceLow;
+                    highestRankedCard = cardsGroupedByRank.Keys
+                        .Where(cardRank => cardRank != CardFace.Ace)
+                        .Max();
+
+                    if (highestRankedCard - lowestRankedCard == (Constants.NumberOfCardsInHand - 1))
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
         }
 
         private Dictionary<CardSuit, int> GroupCardsBySuit(CardHand cardHand)

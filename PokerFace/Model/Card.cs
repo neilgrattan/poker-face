@@ -2,6 +2,7 @@
 {
     public enum CardFace
     {
+        AceLow = 1,
         Two = 2,
         Three,
         Four,
@@ -14,7 +15,7 @@
         Joker = 11,
         Queen = 12,
         King = 13,
-        Ace = 14
+        Ace = 14 // Default ace high in mapping
     }
 
     public enum CardSuit
