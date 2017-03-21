@@ -64,6 +64,21 @@ namespace PokerFace.Test
         }
 
         [Test]
+        public void MapStringArrayToCardHand_WithDuplicateCard_ReturnsNull()
+        {
+            var cardHand = MapStringToCardHand.Map(new[]
+            {
+                "2C",  // Doesn't exist
+                "2C",
+                "AH",
+                "5S",
+                "2D",
+            });
+
+            Assert.AreEqual(null, cardHand);
+        }
+
+        [Test]
         public void MapStringArrayToCardHand_WithValidCards_ReturnsValidCardHand()
         {
             var cardHand = MapStringToCardHand.Map(new[]

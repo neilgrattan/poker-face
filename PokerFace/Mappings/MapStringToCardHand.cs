@@ -24,10 +24,10 @@ namespace PokerFace.Mappings
 
             foreach (var cardString in strings)
             {
-                var card = MapCardStringToCard(cardString);
-                if (card != null)
+                var newCard = MapCardStringToCard(cardString);
+                if (newCard != null && !CardHandContainsCard(cardHand, newCard))
                 {
-                    cardHand.Cards.Add(card);
+                    cardHand.Cards.Add(newCard);
                 }
                 else
                 {
@@ -37,6 +37,11 @@ namespace PokerFace.Mappings
             }
 
             return cardHand.Cards.Count != Constants.NumberOfCardsInHand ? null : cardHand;
+        }
+
+        private static bool CardHandContainsCard(CardHand cardHand, Card newCard)
+        {
+            return cardHand.Cards.Exists(existingCard => existingCard.Suit == newCard.Suit && existingCard.Rank == newCard.Rank);
         }
 
         private static Card MapCardStringToCard(string cardString)
