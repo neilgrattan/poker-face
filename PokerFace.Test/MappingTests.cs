@@ -68,7 +68,7 @@ namespace PokerFace.Test
         {
             var cardHand = MapStringToCardHand.Map(new[]
             {
-                "2C",  // Doesn't exist
+                "2C",
                 "2C",
                 "AH",
                 "5S",
